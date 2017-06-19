@@ -1,0 +1,44 @@
+﻿<div class="container body-content">
+    <h2>{{pagename}} Employees</h2>
+    <hr />
+    <div class="form-horizontal">
+        <div class="form-group">
+            <label id="lblName" class="control-label col-md-2">Name</label>
+            <div class="col-md-10">
+                <input type="text" id="txtName" class="form-control required" value='{{emp.Name}}' />
+            </div>
+        </div>
+        <div class="form-group">
+            <label id="lblDepartment" class="control-label col-md-2">Department</label>
+            <div class="col-md-10">
+                <input type="text" id="txtDepartment" class="form-control required" value="{{emp.Department}}" />
+            </div>
+        </div>
+        <div class="form-group">
+            <label id="lblJoinDate" class="control-label col-md-2">Join Date</label>
+            <div class="col-md-10">
+                <input type="text" id="txtJoinDate" class="form-control required" value="{{emp.JoinDate | date:'dd-MM-yyyy'}}" />
+            </div>
+        </div>
+        <div class="form-group">
+            <label id="lblAge" class="control-label col-md-2">Age</label>
+            <div class="col-md-10">
+                <input type="text" id="txtAge" class="form-control required" value="{{emp.Age}}" />
+            </div>
+        </div>
+        <div class="form-group">
+            <label id="lblPhoto" class="control-label col-md-2">Photo</label>
+            <div class="col-md-10">
+                <input type="file" id="fuPhoto" class="required" />
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" id="submit" value="Create" class="btn btn-default" ng-click="submit()" />
+            </div>
+        </div>
+    </div>
+    <p>
+        <a id="index" class="btn" href="employeeIndex.html">Back to List</a>
+    </p>
+</div>

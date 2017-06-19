@@ -1,0 +1,101 @@
+﻿<!DOCTYPE html>
+<html ng-app="EditEmployee">
+<head>
+    <meta charset="utf-8" />
+    <title>Employee Management System</title>
+    <link href="../../Content/bootstrap.min.css" rel="stylesheet" />
+    <link href="../../Content/bootstrap.css" rel="stylesheet" />
+    <link href="../../Content/Site.css" rel="stylesheet" />
+    <script src="Scripts/jquery-1.10.2.min.js"></script>
+    <script src="Scripts/jquery-1.10.2.js"></script>
+    <script src="Scripts/bootstrap.js"></script>
+    <script src="Scripts/angular.js"></script>
+    <script src="Scripts/app/edit-employee.js"></script>
+    <!--<script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-2.0.3.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script>
+        var uri = 'api/employees';
+        $(document).ready(function () {
+
+            var empId = window.location.search.substring(1).split('&')[0].split('=')[1];
+            $.getJSON(uri + '/' + empId)
+                .done(function (data) {
+                    $("#txtName").val(data.Name);
+                    $("#txtDepartment").val(data.Department);
+                    $("#txtJoinDate").val($.datepicker.formatDate('dd-mm-yy', new Date(data.JoinDate)));
+                    $("#txtAge").val(data.Age);
+                })
+                .fail(function (jqXHR, textStatus, err) {
+                    $('#employees').text('Error: ' + err);
+                });
+
+            // Send an AJAX request
+            //BindEmployee(uri, '');
+            $("#submit").click(function () {
+                var Employee = {
+                    Id: empId,
+                    Name: $("#txtName").val(),
+                    Department: $("#txtDepartment").val(),
+                    JoinDate: $("#txtJoinDate").val(),
+                    Age: $("#txtAge").val()
+                }
+                $.ajax({
+                    url: uri + '/' + empId,
+                    type: "Put",
+                    data: JSON.stringify(Employee), //{ Name: name,
+                    // Department: department, JoinDate: joindate, Age: age }
+                    contentType: 'application/json; charset=utf-8',
+                    success: function (data) {
+                        window.location = 'Index.html';
+                    },
+                    error: function () { alert('error'); }
+                });
+            });
+        });
+    </script>-->
+
+</head>
+<body>
+    <!--<div class="container body-content">
+        <h2>Edit Employees</h2>
+        <hr />
+        <div class="form-horizontal">
+            <div class="form-group">
+                <label id="lblName" class="control-label col-md-2">Name</label>
+                <div class="col-md-10">
+                    <input type="text" id="txtName" class="form-control" />
+                </div>
+            </div>
+            <div class="form-group">
+                <label id="lblDepartment" class="control-label col-md-2">Department</label>
+                <div class="col-md-10">
+                    <input type="text" id="txtDepartment" class="form-control" />
+                </div>
+            </div>
+            <div class="form-group">
+                <label id="lblJoinDate" class="control-label col-md-2">Join Date</label>
+                <div class="col-md-10">
+                    <input type="text" id="txtJoinDate" class="form-control" />
+                </div>
+            </div>
+            <div class="form-group">
+                <label id="lblAge" class="control-label col-md-2">Age</label>
+                <div class="col-md-10">
+                    <input type="text" id="txtAge" class="form-control" />
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <input type="submit" id="submit" value="Edit" class="btn btn-default" />
+                </div>
+            </div>
+        </div>
+
+        <p>
+            <a id="index" class="btn" href="employeeIndex.html">Back to List</a>
+        </p>
+    </div>-->
+    <editemployee-list></editemployee-list>
+</body>
+</html>

@@ -1,0 +1,102 @@
+﻿<!DOCTYPE html>
+<html ng-app="CreateEmployee">
+<head>
+    <meta charset="utf-8" />
+    <title>Employee Management System</title>
+    <link href="../../Content/bootstrap.min.css" rel="stylesheet" />
+    <link href="../../Content/bootstrap.css" rel="stylesheet" />
+    <link href="../../Content/Site.css" rel="stylesheet" />
+    <script src="Scripts/jquery-3.1.1.min.js"></script>
+    <script src="Scripts/jquery-3.1.1.js"></script>
+    <script src="Scripts/bootstrap.js"></script>
+    <script src="Scripts/angular.js"></script>
+    <script src="Scripts/app/create-employee.js"></script>
+
+    <!--<script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-2.0.3.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script>
+        var uri = 'api/employees';
+        $(document).ready(function () {
+            // Send an AJAX request
+            //BindEmployee(uri, '');
+            $("#submit").click(function () {
+                var IsValidate = true;
+                $('.required').each(function () {
+                    if ($(this).val() == undefined || $(this).val() == "") {
+                        $(this).css('border', '1px solid red');
+                        IsValidate = false;
+                    }
+                    else
+                    {
+                        $(this).css('border', '1px solid #cccccc');
+                    }
+                });
+
+                if (IsValidate) {
+                    var Employee = {
+                        Name: $("#txtName").val(),
+                        Department: $("#txtDepartment").val(),
+                        JoinDate: $("#txtJoinDate").val(),
+                        Age: $("#txtAge").val()
+                    }
+                    $.ajax({
+                        url: uri,
+                        type: "Post",
+                        data: JSON.stringify(Employee), //{ Name: name,
+                        // Department: department, JoinDate: joindate, Age: age }
+                        contentType: 'application/json; charset=utf-8',
+                        success: function (data) {
+                            window.location = 'Index.html';
+                        },
+                        error: function () { alert('error'); }
+                    });
+                }
+            });
+        });
+    </script>-->
+
+</head>
+<body>
+    <!--<div class="container body-content">
+        <h2>Create Employees</h2>
+        <hr />
+        <div class="form-horizontal">
+            <div class="form-group">
+                <label id="lblName" class="control-label col-md-2">Name</label>
+                <div class="col-md-10">
+                    <input type="text" id="txtName" class="form-control required" />
+                </div>
+            </div>
+            <div class="form-group">
+                <label id="lblDepartment" class="control-label col-md-2">Department</label>
+                <div class="col-md-10">
+                    <input type="text" id="txtDepartment" class="form-control required" />
+                </div>
+            </div>
+            <div class="form-group">
+                <label id="lblJoinDate" class="control-label col-md-2">Join Date</label>
+                <div class="col-md-10">
+                    <input type="text" id="txtJoinDate" class="form-control required" />
+                </div>
+            </div>
+            <div class="form-group">
+                <label id="lblAge" class="control-label col-md-2">Age</label>
+                <div class="col-md-10">
+                    <input type="text" id="txtAge" class="form-control required" />
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <input type="submit" id="submit" value="Create" class="btn btn-default" ng-click="submit()" />
+                </div>
+            </div>
+        </div>
+
+        <p>
+            <a id="index" class="btn" href="Index.html">Back to List</a>
+        </p>
+    </div>-->
+    <createemployee-list></createemployee-list>
+</body>
+</html>

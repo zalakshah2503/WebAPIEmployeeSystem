@@ -1,0 +1,109 @@
+﻿<!DOCTYPE html>
+<html ng-app="EmployeeApp">
+<head>
+    <meta charset="utf-8" />
+    <title>Employee Management System</title>
+    <link href="Content/bootstrap.min.css" rel="stylesheet" />
+    <link href="Content/bootstrap.css" rel="stylesheet" />
+    <link href="Content/Site.css" rel="stylesheet" />
+    <!--<script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-2.0.3.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>-->
+    <script src="Scripts/jquery-1.10.2.min.js"></script>
+    <script src="Scripts/jquery-1.10.2.js"></script>
+    <script src="Scripts/bootstrap.js"></script>
+    <script src="Scripts/angular.js"></script>
+    <script src="Scripts/app/employee-controller.js"></script>
+    <!--<script>
+        var uri = 'api/employees';
+        $(document).ready(function () {
+            // Send an AJAX request
+            BindEmployee(uri,'');
+        });
+
+        function formatItem(item) {
+            var newJoinDate = $.datepicker.formatDate('dd-mm-yy', new Date(item.JoinDate));
+            return '<td width="20%"> &nbsp;' + item.Name + ' </td><td width="20%"> &nbsp;' + item.Department + ' </td><td width="20%"> &nbsp;' + newJoinDate + ' </td><td width="20%"> &nbsp;' + item.Age + '</td><td><a id="edit" class="btn" href="Edit.html?EmpId=' + item.Id + '">Edit</a> | <a id="delete" class="btn" onclick="empdelete(' + item.Id + ');">Delete</a> </td>';
+        }
+
+        function empdelete(empid){
+            $.ajax({
+                url: uri + '/' + empid,
+                type: "Delete",
+                //data: parseInt(empid), 
+                //contentType: 'application/json; charset=utf-8',
+                success: function (data) {
+                    alert('Deleted Successfully');
+                    window.location = 'Index.html';
+                },
+                error: function () { alert('error'); }
+            });
+        }
+
+        function BindEmployee(newuri,statement) {
+            $.getJSON(newuri)
+                .done(function (data) {
+                    $('#employees').empty();
+                    if (statement == 'find') {
+                        $('<tr/>', { html: formatItem(data) }).appendTo($('#employees'));
+                    }
+                    else {
+                        $.each(data, function (key, item) {
+                            $('<tr/>', { html: formatItem(item) }).appendTo($('#employees'));
+                        });
+                    }
+                })
+                .fail(function (jqXHR, textStatus, err) {
+                    $('#employees').text('Error: ' + err);
+                });
+        }
+
+        function find() {
+            var id = $('#prodId').val();
+            if (id != undefined && id != "")
+                BindEmployee(uri + '/' + id, 'find');
+            else
+                BindEmployee(uri, '');
+        }
+    </script>-->
+</head>
+<body ng-controller="EmployeeListController">
+    <div class="container body-content">
+        <h2>All Employees</h2>
+        <p>
+            <a id="create" class="btn" href="Create.html">Create New</a>
+        </p>
+        <p>
+            <input type="text" id="prodId" size="15" />
+            <input type="button" value="Search" ng-click="find();" />
+        </p>
+        <table class="table">
+            <tr>
+                <th width="20%">
+                    Name
+                </th>
+                <th width="20%">
+                    Department
+                </th>
+                <th width="20%">
+                    Join Date
+                </th>
+                <th width="20%">
+                    Age
+                </th>
+                <th></th>
+            </tr>
+            <tr ng-repeat="emp in employees">
+                <td>{{emp.Name}}</td>
+                <td>{{emp.Department}}</td>
+                <td>{{emp.JoinDate}}</td>
+                <td>{{emp.Age}}</td>
+                <td>
+                    <a id="edit" class="btn" href='Edit.html?EmpId={{emp.Id}}'>Edit</a> | 
+                    <a id="delete" class="btn" ng-click="empdelete();">Delete</a> 
+                </td>
+            </tr>
+        </table>
+        <!--<table class="table" id="employees"></table>-->
+    </div>
+</body>
+</html>

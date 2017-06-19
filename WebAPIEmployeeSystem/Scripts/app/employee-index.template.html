@@ -1,0 +1,62 @@
+﻿
+<div class="container body-content">
+    <h2>All Employees</h2>
+    <p>
+        <a id="create" class="btn" href="Create.html">Create New</a>
+    </p>
+    <p>
+        <input type="text" id="prodId" size="15" />
+        <input type="button" value="Search" ng-click="find();" />
+    </p>
+    <p>
+        Search: <input ng-model="$ctrl.query" />
+    </p>
+    <p>
+        Sort by:
+        <select ng-model="$ctrl.orderProp">
+            <option value="Name">Alphabetical</option>
+            <option value="-Age">Newest</option>  <!-- '-' for desending order-->
+        </select>
+    </p>
+    <table class="table">
+        <tr>
+            <th width="17%">
+                Name
+            </th>
+            <th width="17%">
+                Department
+            </th>
+            <th width="17%">
+                Join Date
+            </th>
+            <th width="17%">
+                Age
+            </th>
+            <th width="15%">
+                Photo
+            </th>
+            <th width="17%"></th>
+        </tr>
+        <tr ng-repeat="emp in employees | filter:$ctrl.query | orderBy:$ctrl.orderProp">
+            <td>
+                {{emp.Name}}
+            </td>
+            <td>
+                {{emp.Department}}
+            </td>
+            <td>
+                {{emp.JoinDate | date:'dd-MM-yyyy'}}
+            </td>
+            <td>
+                {{emp.Age}}
+            </td>
+            <td>
+                <img ng-src='images/employee/{{emp.Photo!="" ? emp.Photo : "NoImage.png"}}' height="50" width="50" alt="{{emp.Name}} Photo" />
+            </td>
+            <td>
+                <a id="edit" class="btn" href="Edit.html?EmpId={{emp.Id}}">Edit</a> |
+                <a id="delete" class="btn" ng-click="empdelete();">Delete</a>
+            </td>
+        </tr>
+    </table>
+</div>
