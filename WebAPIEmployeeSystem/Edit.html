@@ -11,7 +11,49 @@
     <script src="Scripts/bootstrap.js"></script>
     <script src="Scripts/angular.js"></script>
     <script src="Scripts/app/edit-employee.js"></script>
-    
+    <!--<script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-2.0.3.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script>
+        var uri = 'api/employees';
+        $(document).ready(function () {
+
+            var empId = window.location.search.substring(1).split('&')[0].split('=')[1];
+            $.getJSON(uri + '/' + empId)
+                .done(function (data) {
+                    $("#txtName").val(data.Name);
+                    $("#txtDepartment").val(data.Department);
+                    $("#txtJoinDate").val($.datepicker.formatDate('dd-mm-yy', new Date(data.JoinDate)));
+                    $("#txtAge").val(data.Age);
+                })
+                .fail(function (jqXHR, textStatus, err) {
+                    $('#employees').text('Error: ' + err);
+                });
+
+            // Send an AJAX request
+            //BindEmployee(uri, '');
+            $("#submit").click(function () {
+                var Employee = {
+                    Id: empId,
+                    Name: $("#txtName").val(),
+                    Department: $("#txtDepartment").val(),
+                    JoinDate: $("#txtJoinDate").val(),
+                    Age: $("#txtAge").val()
+                }
+                $.ajax({
+                    url: uri + '/' + empId,
+                    type: "Put",
+                    data: JSON.stringify(Employee), //{ Name: name,
+                    // Department: department, JoinDate: joindate, Age: age }
+                    contentType: 'application/json; charset=utf-8',
+                    success: function (data) {
+                        window.location = 'Index.html';
+                    },
+                    error: function () { alert('error'); }
+                });
+            });
+        });
+    </script>-->
+
 </head>
 <body>
     <!--<div class="container body-content">
