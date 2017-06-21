@@ -1,0 +1,13 @@
+*.dll
+*.exe
+*.pdb
+*.dll.config
+*.cache
+*.suo
+*.sln
+*.config
+
+bin/
+obj/
+App_Data/
+
